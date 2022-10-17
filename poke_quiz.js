@@ -5,7 +5,6 @@ let num = 0;
 const form = document.getElementById("form");
 const input = document.getElementById("input");
 
-
 let datalist = document.createElement("datalist");
 datalist.id = "mylist";
 let names = [];
@@ -38,9 +37,14 @@ function match(){
 	tr.id = "item"
 	tr.textContent = "";
 	if (anser[0] == input.value){
-			anser.forEach((e)=>{
+			anser.forEach((e,index)=>{
 				let td = document.createElement("td");
-				td.textContent = e;
+				if (index == 10){
+					td.textContent = `第${e}世代`;
+				}
+				else {
+					td.textContent = e;
+				}
 				td.className = "table-warning";
 				tr.appendChild(td);
 			})
